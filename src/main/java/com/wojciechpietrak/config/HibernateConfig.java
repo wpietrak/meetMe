@@ -18,7 +18,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-@PropertySource(value = {"classpath:hibernate.properties"})
+@PropertySource(value = {"classpath:hibernate.properties.dist"})
 @EnableJpaRepositories(basePackages = "com.wojciechpietrak.dao")
 public class HibernateConfig {
 	
