@@ -29,7 +29,6 @@ public class MeetingController {
 
 	@RequestMapping(value = "/meeting/create", method = RequestMethod.GET)
 	public String getCreateMeetingForm(Model model) {
-		//musimy zapenić obiekt aby "coś" dać pod akcję edycji książki która odsyła na tą samą stronę
 		model.addAttribute("meeting", new Meeting());
 		return "meeting-create";
 	}

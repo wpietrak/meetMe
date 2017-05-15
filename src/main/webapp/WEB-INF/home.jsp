@@ -4,9 +4,10 @@
 
 <div class="container">
 
-    <h1>Hello "${user.email}" </h1>
-    <h2>You can add new appointment to list. </h2>
-    <h3>Remember to check if it's confirmed</h3>
+    <h1>Hello </h1>
+    <h2>You can add new appointment <a href="meeting/create">here</a>. </h2>
+    <h3>Remember to check if it's confirmed <a href="confirmed">here</a></h3>
+
 
 </div>
 

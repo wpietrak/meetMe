@@ -34,7 +34,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="date">Meeting date:</label>
 				<div class="col-sm-6">
-					<input value="${meeting.date}" name="date"  id="data"
+					<input value="${meeting.date}" name="date"  id="data" type="date"
 						class="form-control" placeholder="Enter meeting data" autofocus>
 				</div>
 			</div>
@@ -47,19 +47,19 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="quantity">Participants
-					(quantity):</label>
+				<label class="control-label col-sm-2" for="duration">Duration
+					(minutes):</label>
 				<div class="col-sm-6">
-					<input value="${meeting.quantity}" name="quantity" type="number"
-						id="quantity" class="form-control"
-						placeholder="Enter participants quantity" autofocus>
+					<input value="${meeting.duration}" name="duration" type="number"
+						id="duration" class="form-control"
+						placeholder="Enter meeting duration" autofocus>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-6">
-					<button type="submit" class="btn btn-primary">Zapisz</button>
-					<a href="${meetingsUrl}" class="btn btn-danger">Anuluj</a>
+					<button type="submit" class="btn btn-primary">Create</button>
+					<a href="${meetingsUrl}" class="btn btn-danger">Cancel</a>
 				</div>
 			</div>
 		</form>

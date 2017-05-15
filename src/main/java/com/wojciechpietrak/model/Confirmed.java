@@ -27,4 +27,54 @@ public class Confirmed extends BaseEntity{
 	    @ManyToOne(fetch = FetchType.EAGER)
 	    @JoinColumn(name = "book_id")
 	    private Meeting meeting;
+
+	    
+	    public Confirmed(){
+	    	
+	    }
+	       
+		public Confirmed(Status status, User user, Meeting meeting) {
+			super();
+			this.status = status;
+			this.user = user;
+			this.meeting = meeting;
+		}
+
+		public Confirmed(User user, Meeting meeting) {
+			this.user = user;
+			this.meeting = meeting;
+		}
+
+		public Confirmed(Meeting meeting) {
+			status = Status.CONFIRMED;
+			this.meeting = meeting;
+		}
+
+		public Status getStatus() {
+			return status;
+		}
+
+		public void setStatus(Status status) {
+			this.status = status;
+		}
+
+		public User getUser() {
+			return user;
+		}
+
+		public void setUser(User user) {
+			this.user = user;
+		}
+
+		public Meeting getMeeting() {
+			return meeting;
+		}
+
+		public void setMeeting(Meeting meeting) {
+			this.meeting = meeting;
+		}
+	    
+	    
 }
+
+

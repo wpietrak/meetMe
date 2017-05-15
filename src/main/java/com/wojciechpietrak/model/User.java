@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -12,15 +13,19 @@ public class User extends BaseEntity{
 
 	public enum Role{ADMIN, USER}
 
+	@NotNull
     @Column(name = "first_name")
     private String firstName;
 
+	@NotNull
     @Column(name = "last_name")
     private String lastName;
     
+	@NotNull
     @Column(name = "password")
     private String password;
     
+	@NotNull
     @Column(name="email", unique=true)
     private String email;
     

@@ -34,8 +34,7 @@ public class AppInitializer implements WebApplicationInitializer{
 		DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy();
 		servletContext.addFilter("springSecurityFilterChain", delegatingFilterProxy)
 		.addMappingForUrlPatterns(null, true, "/*");
-		// a chciałbym żeby było:
-		//.addMappingForUrlPatterns(null, true, "user/*");
+
 	}
 
 }

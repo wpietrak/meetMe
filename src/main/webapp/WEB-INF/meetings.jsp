@@ -2,14 +2,16 @@
 <%@ include file="/WEB-INF/include/header.jsp"%>
 <%@ include file="/WEB-INF/include/navbar.jsp"%>
 
-<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <c:url value="/meeting/edit" var="editMeetingUrl" />
 <c:url value="/meeting/delete" var="deleteMeetingUrl" />
-<c:url value="/confirmed" var="confirmedMeetingUrl" />
+<c:url value="/confirmed/meeting" var="confirmedMeetingUrl" />
 <div class="container">
 
-	<h1>Spotkania do potwierdzenia</h1>
+
+	<h1>Appointments to confirm</h1>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -17,15 +19,16 @@
 				<thead>
 					<tr>
 						<th class="text-center col-md-1">Id</th>
-						<th class="text-center">Nazwa</th>
-						<th class="text-center">Cel</th>
-						
-						<th class="text-center col-md-1">Data</th>
-						<th class="text-center col-md-1">Godzina</th>
-						<th class="text-center col-md-1">Liczba uczestikow</th>
-						<th class="text-center col-md-1">Potwierdzone?</th>
-						<th class="text-center col-md-1">Edytuj</th>
-						<th class="text-center col-md-1">Usun</th>
+						<th class="text-center">Title</th>
+						<th class="text-center">Purpose</th>
+
+						<th class="text-center col-md-1">Date</th>
+						<th class="text-center col-md-1">Time</th>
+						<th class="text-center col-md-1">Meeting duration</th>
+						<th class="text-center col-md-1">Room</th>
+						<th class="text-center col-md-1">Confirm</th>
+						<th class="text-center col-md-1">Edit</th>
+						<th class="text-center col-md-1">Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,27 +38,37 @@
 							<td>${meeting.title}</td>
 							<td>${meeting.purpose}</td>
 							<td>${meeting.date}</td>
-							<td>${meeting.time}</td> 
-							<td>${meeting.quantity}</td>
-					  <td class="text-center">
-					  <%-- <sec:authorize access="hasRole('ADMIN')"> --%>
-					  <form method="post" action="${confirmedMeetingUrl}/${meeting.id}">					
-                            <input type="hidden" name="bookId" value="${meeting.id}">
-                            <button                                
-                                    type="submit" class="btn btn-sm btn-success">Potwierdzone!</button>
-                        </form>		
-                        <%-- </sec:authorize> --%>
-                        </td>	
+							<td>${meeting.time}</td>
+							<td>${meeting.duration}</td>
+							<td><c:if test="${(meeting.duration>15)&& (meeting.duration<120)}">
 							
-							<td class="text-center"><a href="${editMeetingUrl}/${meeting.id}"
-								class="btn btn-sm btn-primary">Edytuj</a></td>
+									<div class="alert alert-danger fade in">
+										
+										<p>Check room</p>
+									</div>
+								</c:if></td>
+							<td class="text-center"><sec:authorize
+									access="hasRole('ADMIN')">
+									<form method="post"
+										action="${confirmedMeetingUrl}/${meeting.id}">
+
+
+										<input type="hidden" name="meetingId" value="${meeting.id}">
+										<button type="submit" class="btn btn-sm btn-success">Confirm!</button>
+									</form>
+								</sec:authorize></td>
+
+
+							<td class="text-center"><a
+								href="${editMeetingUrl}/${meeting.id}"
+								class="btn btn-sm btn-primary">Edit</a></td>
 							<td class="text-center">
 
 								<form action="${deleteMeetingUrl}/${meeting.id}" method="post">
-									<input name="id" type="hidden" value="${meeting.id}"> 
-									<input class="btn btn-sm btn-danger" type="submit" value="Usun">
-								</form> 
-								</td>
+									<input name="id" type="hidden" value="${meeting.id}"> <input
+										class="btn btn-sm btn-danger" type="submit" value="Delete">
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

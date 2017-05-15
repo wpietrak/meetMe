@@ -4,28 +4,28 @@
 
 <div class="container">
 
-	<h1>Przeczytane Ksiazki</h1>
+	<h1>Appointments CONFIRMED</h1>
 
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table table-striped table-hover table-bordered">
 				<thead>
 					<tr>
-						<th class="text-center col-md-1">Id</th>
-						<th class="text-center">Data dodania</th>
-						<!-- <th class="text-center">date przeczytania</th> -->
-						<th class="text-center col-md-3">Uzytkownik</th>
-						<th class="text-center col-md-3">Ksiazka</th>
+						<th class="text-center col-md-5">Appointment Title</th>
+						<th class="text-center col-md-5">Appointment Purpose</th>
+						<th class="text-center col-md-5">Appointment Date</th>
+						<th class="text-center col-md-5">Appointment Time</th>
+						<th class="text-center">Status</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="confirmed" items="${confirmedList}">
-						<tr>
-                        <td>${confirmed.id}</td>
-                        <td>${confirmed.addDate}</td>
-                       <%--  <td>${confirmed.readDate}</td> --%>
-                        <td>${confirmed.user.firstName} ${read.user.lastName}</td>
-                        <td>${confirmed.book.title} (${read.book.author})</td>
+						<tr>						
+							<td>${confirmed.meeting.title}</td>
+							<td>${confirmed.meeting.purpose}</td>
+							<td>${confirmed.meeting.date}</td>
+							<td>${confirmed.meeting.time}</td>
+							<td>${confirmed.status}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

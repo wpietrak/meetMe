@@ -7,7 +7,7 @@
 <c:url var="createUserUrl" value="/user/create" />
 <c:url var="userUrl" value="/user" />
 <c:url value="/logout" var="logoutUrl" />
-<c:url var="myConfirmUrl" value="/confirm" />
+<c:url var="myConfirmUrl" value="/confirmed" />
 
 <nav class="navbar navbar-inverse" role="navigation">
 	<div class="container-fluid">

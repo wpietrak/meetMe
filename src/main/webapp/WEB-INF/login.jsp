@@ -20,31 +20,27 @@
     <c:if test="${param.error!=null}">
     <div class="alert alert-danger fade in">
         <a class="close" data-dismiss="alert" href="#">&times;</a>
-        <p>Username or password is incorrect</p>
+        <p>Email or password is incorrect</p>
     </div>
 </c:if>
 <div class="container">
 <div class="col-md-6 col-md-offset-3">
 <div class="form">
 	<div class="form-group">
-        <h4>Zaloguj sie na swoje konto</h4>
+        <h4>Log In (or Register if you don't have account)</h4>
         <form action="${loginUrl}" method="post" class="form-signin">
-        	<label for="exampleInputEmail">Wpisz Emial</label>	
+        	<label for="exampleInputEmail">Your email</label>	
             <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-			<label for="exampleInputPassword">Wpisz haslo</label>	           
+			<label for="exampleInputPassword">Your password</label>	           
 			<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <div id="remember" class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me (nie dziala jeszcze)
-                </label>
+
             </div>
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Zaloguj sie</button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Log in</button>
         </form>
+
         <div class="margin-bottom-10">
-            <a href="#" class="forgot-password">Zapomniales hasla? (nie dziala jeszcze)</a>
-        </div>
-        <div class="margin-bottom-10">
-            Nie masz jeszcze konta? <a href="${registerUrl}" class="register">Stworz konto</a>
+            You don't have an account? <a href="${registerUrl}" class="register">Register</a>
         </div>
     </div>
     </div>
